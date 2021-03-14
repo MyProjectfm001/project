@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: auto;
+}
+.slick-track{
+    display: flex;
+}
+
+.slick-list{
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+}
+.slider img {
+    display: inline-block;
+    height: 100vw;
+    border-radius: 0 0 16px 16px;
+}
+
+.slider__item {
+    display: inline-block;
+}
+
+.slick-dots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slick-dots li{
+    list-style: none;
+    margin: 0 10px;
+    margin-top: -40px;
+    z-index: 5;
+}
+.slick-dots button{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    font-size: 0;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+.slick-dots .slick-active button {
+    border: 1px solid #C4C4C4;
+}
+
+button, input[type="submit"] {
+    text-align: center;
+    color: black;
+    display: block;
+    margin: 30px auto 30px auto;
+    border-radius: 23.5px;
+    border: solid #0053A2 3px;
+    outline: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+button, input[type="submit"] {
+    width: 137px;
+    height: 38px;
+    background-color: #0053A2;
+    color: white;
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+b {
+    color: #0053A2;
+}
