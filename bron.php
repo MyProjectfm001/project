@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/sum.js"></script>
-    <link rel="stylesheet" href="css/kenkeme.css">
+    <link rel="stylesheet" href="css/bron.css">
     <script src="js/jquery.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/slider.js"></script>
@@ -17,7 +17,14 @@
     <title><?=$title?></title>
 </head>
 <body>
-    <h1>Бронирование услуг на базе <?=$title?></h1>
+    <div class="slider">
+        <div class="slide">
+            <img src="images/tanhai/1.jpeg" alt="">
+            <img src="images/sendmoin/1.jpg" alt="">
+            <img src="images/kenkeme/1.jpg" alt="">
+        </div>
+    </div>
+    <h2><?=$title?></h2>
     <?php
     $title = '"' . $_POST['title'] . '"';
     // Подключение файла подключения
@@ -32,8 +39,11 @@
     $sql1 = mysqli_query($link, $query1);
 
     if ($sql1 and $sql) {
+        echo "<form method='POST' action='php/bron2.php'>";
         if (mysqli_num_rows($sql1) == 0) {
-            echo "Все места свободны.";
+            while ($result = mysqli_fetch_array($sql)) {
+                echo "<input type='checkbox' name='ids[]' value='{$result['id']}'> {$result['name']} {$result['price']} рублей. Свободно<br>";
+            }
         }else {
             while ($result1 = mysqli_fetch_array($sql1)) {
                 $s = explode(',', $result1['service']);
@@ -42,33 +52,16 @@
                         if ($i == $result['id']) {
                             echo "{$result['name']} Занято<br>";
                         }else {
-                            echo "<input type='checkbox' name='ids' value='{$result['price']}'>{$result['name']} {$result['price']} рублей. Свободно<br>";
+                            echo "<input type='checkbox' name='ids[]' value='{$result['id']}'> {$result['name']} {$result['price']} рублей. Свободно<br>";
                         }
                     }
                     
                 }
             }
         }
-    }else {
-        echo "Все места свободны.<br>";
     }
-    
-    
-    // if ($sql) {
-    //     $title = str_replace('"', '', $title);
-    //     echo "<form name='change' action='php/bron2.php' method='POST'> ";
-    //     while ($result = mysqli_fetch_array($sql)) {
-    //         echo "<input id='check' type='checkbox' name = 'services[]' value='{$result['price']}'><label for='check'>{$result['name']}</label> {$result['price']}<br><br>";
-    //     }
-    // }else {
-    //     echo 'sdfsdf';
-    // }
-    
-    
     ?>
-        <input id="hidden" name="price" type="hidden" value="">
-        <input type="submit" value="Посмотреть" onclick="res(1);"><br><br>
+        <input type="submit" value="Забронировать">
     </form>
-    <button onclick="res(2);">Посчитать сумму</button>
 </body>
 </html>

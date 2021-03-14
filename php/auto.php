@@ -24,7 +24,9 @@ if ($res) {
             $lastname = $results['lastname'];
             $number = $results['number'];
             $password2 = $results['password'];
+            $id = $results['id'];
             setcookie('auth', "1", time() + 3600 * 24 * 30, "/");
+            setcookie('user_id', $id, time() + 3600 * 24 * 30, "/");
             setcookie('name', "$name", time() + 3600 * 24 * 30, "/");
             setcookie('lastname', "$lastname", time() + 3600 * 24 * 30, "/");
             setcookie('number', "$number", time() + 3600 * 24 * 30, "/");

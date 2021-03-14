@@ -23,6 +23,17 @@
 </head>
 <body>
     <div class="container">
+        <?php
+                if ($_COOKIE['auth'] <> "1"){
+                    echo '<a class="bottom" href="autoriz.php">Войти</a><br><a class="bottom" href="reg.html">Регистрация</a><br>';
+                }else {
+                    echo "<a class='bottom' href='brons.php'>Мои бронирования</a><br><a class='bottom' href='php/exit.php'>Выйти</a>";
+                }
+                
+                ?>  
+    </div>
+
+    <div class="container">
         <br>
         <h1>Рекомендации</h1><br>
         <div class="slider">
@@ -56,5 +67,6 @@
             </div>
         </div>
     </div>
+    
 </body>
 </html>
